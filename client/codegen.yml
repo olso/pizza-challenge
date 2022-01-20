@@ -1,0 +1,16 @@
+schema: http://localhost:3001/graphql
+
+config:
+  noSchemaStitching: true
+  optionalInfoArgument: true
+  federation: false
+  useTypeImports: true
+  MaybeValue: T | null | undefined
+
+generates:
+  schema.graphql:
+    plugins:
+      - schema-ast
+  src/types/GeneratedGql.ts:
+    plugins:
+      - typescript

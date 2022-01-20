@@ -1,0 +1,88 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@mui/icons-material": "^5.2.5",
+    "@mui/lab": "^5.0.0-alpha.64",
+    "@mui/material": "^5.2.8",
+    "@mui/styled-engine-sc": "^5.1.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "card-validator": "^8.1.1",
+    "formik": "^2.2.9",
+    "graphql": "^16.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-number-format": "^4.9.1",
+    "react-relay": "^13.0.1",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "react-use": "^17.3.2",
+    "relay-runtime": "^13.0.1",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "postinstall": "patch-package",
+    "start": "craco start",
+    "start:docker": "BROWSER=none craco start",
+    "start:verbose": "craco start --verbose",
+    "build": "craco build",
+    "test": "craco test",
+    "relay": "relay-compiler",
+    "types": "NODE_ENV=production tsc --noEmit",
+    "schema": "graphql-codegen",
+    "syncgql": "run-s schema relay",
+    "_start": "react-scripts start",
+    "_build": "react-scripts build",
+    "_test": "react-scripts test",
+    "_eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "https://gitpkg.now.sh/gsoft-inc/craco/packages/craco?7aab18d485074588a4f63455ec2627340bd6240c",
+    "@graphql-cli/codegen": "^2.1.6",
+    "@graphql-codegen/schema-ast": "^2.4.1",
+    "@graphql-codegen/typescript": "^2.4.2",
+    "@types/react-relay": "^13.0.0",
+    "@types/react-router": "^5.1.17",
+    "@types/react-router-dom": "^5.3.2",
+    "@types/relay-test-utils": "^6.0.5",
+    "@types/styled-components": "^5.1.20",
+    "babel-plugin-relay": "^13.0.1",
+    "craco-alias": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "relay-compiler": "^13.0.1",
+    "relay-compiler-language-typescript": "^15.0.0",
+    "relay-config": "^12.0.1",
+    "relay-test-utils": "^13.0.1"
+  }
+}

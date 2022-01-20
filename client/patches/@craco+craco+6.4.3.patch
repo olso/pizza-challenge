@@ -1,0 +1,13 @@
+diff --git a/node_modules/@craco/craco/lib/features/jest/create-jest-babel-transform.js b/node_modules/@craco/craco/lib/features/jest/create-jest-babel-transform.js
+index 5c5a347..0d5c911 100644
+--- a/node_modules/@craco/craco/lib/features/jest/create-jest-babel-transform.js
++++ b/node_modules/@craco/craco/lib/features/jest/create-jest-babel-transform.js
+@@ -28,7 +28,7 @@ function createJestBabelTransform(cracoConfig) {
+                 }
+             ]
+         ],
+-        babelrc: false,
++        babelrc: true, // patch
+         configFile: false
+     };
+ 

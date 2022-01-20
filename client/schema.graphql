@@ -1,0 +1,106 @@
+type Basket {
+  id: ID!
+  items: [BasketItem!]!
+  totalPrice: Money!
+}
+
+input BasketInput {
+  items: [BasketItemInput!]!
+}
+
+type BasketItem {
+  localId: String!
+  pizza: Pizza!
+  pizzaId: ID!
+  pricePreview: PricePreview!
+  size: Size!
+  sizeId: ID!
+  toppingIds: [ID!]!
+  toppings: [Topping!]!
+}
+
+input BasketItemInput {
+  localId: String!
+  pizzaId: ID!
+  sizeId: ID!
+  toppingIds: [ID!]!
+}
+
+type Money {
+  """
+  https://stripe.com/docs/currencies#zero-decimal
+  e.g. 10 EUR is 1000 (cents)
+  """
+  amount: Int!
+  currency: String!
+  symbol: String!
+}
+
+type Mutation {
+  makeBasket(input: BasketInput!): Basket
+  submitBasket(input: SubmitBasketInput!): SubmitBasketResult!
+}
+
+interface Node {
+  id: ID!
+}
+
+type Pizza implements Node {
+  description: String!
+  id: ID!
+  name: String!
+  slug: String!
+}
+
+type PricePreview {
+  sizePrice: Money!
+  toppingsPrice: Money!
+  totalPrice: Money!
+}
+
+input PricePreviewInput {
+  sizeId: ID!
+  toppingIds: [ID!]!
+}
+
+type Query {
+  pizza(id: ID!): Pizza
+  pizzas(ids: [ID!]): [Pizza!]!
+  pricePreview(input: PricePreviewInput!): PricePreview
+  sizes: [Size!]!
+  toppings(ids: [ID!]): [Topping!]!
+}
+
+type Size implements Node {
+  id: ID!
+  name: String!
+  price: Money!
+}
+
+input SubmitBasketInput {
+  basketId: ID!
+  card: SubmitCardInput!
+  personal: SubmitPersonalInput!
+}
+
+type SubmitBasketResult {
+  ok: Boolean!
+}
+
+input SubmitCardInput {
+  cvv: String!
+  expiration: String!
+  number: String!
+}
+
+input SubmitPersonalInput {
+  address: String!
+  name: String!
+  phone: String!
+}
+
+type Topping implements Node {
+  id: ID!
+  name: String!
+  price: Money!
+}

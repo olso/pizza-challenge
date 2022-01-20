@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  server:
+    restart: unless-stopped
+    build:
+      context: ./server
+    ports:
+      - 3001:3001
+    logging:
+      options:
+        max-size: 20m
+        max-file: 1
+
+  client:
+    depends_on:
+      - server
+    restart: unless-stopped
+    stdin_open: true
+    build:
+      context: ./client
+    ports:
+      - 3000:3000
+    logging:
+        options:
+          max-size: 20m
+          max-file: 1

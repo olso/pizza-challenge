@@ -1,0 +1,17 @@
+schema: http://localhost:3001/graphql
+
+config:
+  noSchemaStitching: true
+  optionalInfoArgument: true
+  federation: false
+  useTypeImports: true
+  MaybeValue: T | null | undefined
+  mappers:
+    Pizza: ../data#DbPizza
+    Topping: ../data#DbTopping
+
+generates:
+  src/types/GeneratedGql.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
